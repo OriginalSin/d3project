@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<title>leaflet-d3 каркас</title>
+
+	<link rel="stylesheet" href="./ext/leaflet/leaflet.css" />
+	<script src="./ext/leaflet/leaflet.js"></script>
+	<script src="./ext/d3/d3.min.js"></script>
+
+	<link rel="stylesheet" href="./src/leaflet-d3.css" />
+	<script src="./src/leaflet-d3.js"></script>
+</head>
+
+<body>
+	<div class="leftPanel"></div>
+	<div class="mapCont"></div>    
+ 	<div class="bottomPanel"></div>
+   
+<script>
+	let map = L.nsMvs.createMap({
+		restUrl: 'https://graphql.dev.mvs.group/graphql',
+		graph: `query getAllLines { 
+		  allVLineGeos{
+			edges{
+			  node{
+				sid
+				name
+				lanesCount        
+				lon
+				lat
+				geoJson
+				complexName
+				cafapStatus
+				workingStatus
+				mintransStatus
+				mintransActStatus
+			  }
+			}
+		  }
+		}`
+	});
+</script>
+</body>
+</html>
